@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>639073906376-f4m9fs29gkg4llq56a93usp35t9gnimb.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.639073906376-f4m9fs29gkg4llq56a93usp35t9gnimb</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBGbetXYLyVnXSGFmoTjwORpe391IyuQs8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>639073906376</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.ngalamblogFlutetr</string>
+	<key>PROJECT_ID</key>
+	<string>tubesabp</string>
+	<key>STORAGE_BUCKET</key>
+	<string>tubesabp.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:639073906376:ios:45e988a2de908354a7fffd</string>
+</dict>
+</plist>
