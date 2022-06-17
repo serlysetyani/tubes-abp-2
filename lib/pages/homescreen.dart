@@ -44,13 +44,18 @@ class _HomeScreenState extends State<HomeScreen> {
         body: FutureBuilder(
           future: getDocIDs(),
           builder: (context, snapshot) {
-            return ListView.builder(
-              itemCount: docIDs.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: GetContent(documentId: docIDs[index]),
-                );
-              },
+            return Padding(
+              padding: const EdgeInsets.only(top: 20.0),
+              child: ListView.builder(
+                itemCount: docIDs.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: GetContent(documentId: docIDs[index]),
+                    // subtitle: Text("Ini adalah deskripsi"),
+                    trailing: Icon(Icons.arrow_forward_ios),
+                  );
+                },
+              ),
             );
           },
         ),

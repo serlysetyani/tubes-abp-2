@@ -45,7 +45,14 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Lupa Password'),
+        title: Text(
+          "Lupa Password",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
+        backgroundColor: Colors.white,
         elevation: 0,
       ),
       body: Column(
@@ -85,13 +92,28 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
           // button reset password
 
           SizedBox(height: 8),
-          MaterialButton(
-              onPressed: passwordReset,
-              color: Colors.blue,
-              child: Text(
-                'Reset Password',
-                style: TextStyle(color: Colors.white),
-              )),
+
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24.0),
+            child: GestureDetector(
+              onTap: passwordReset,
+              child: Container(
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Center(
+                    child: Text(
+                  'Reset Password',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                )),
+              ),
+            ),
+          ),
         ],
       ),
     );

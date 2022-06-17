@@ -17,7 +17,7 @@ class GetContent extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.done) {
           Map<String, dynamic> data =
               snapshot.data!.data() as Map<String, dynamic>;
-          return Text("${data['title']}");
+          return Text("${data['title']}" + "\n" + "${data['content']}");
         }
         return Text("Loading");
       })),
