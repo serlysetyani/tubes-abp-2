@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ngalamblog_flutetr/pages/addArticle_page.dart';
+import 'package:ngalamblog_flutetr/read%20data/get_content.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -13,6 +15,19 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final user = FirebaseAuth.instance.currentUser;
+
+  List<String> docIDs = [];
+
+  Future getDocIDs() async {
+    await FirebaseFirestore.instance
+        .collection('articles')
+        .get()
+        .then((snapshot) => snapshot.docs.forEach((element) {
+              print(element.reference);
+              docIDs.add(element.reference.id);
+            }));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -25,20 +40,19 @@ class _HomeScreenState extends State<HomeScreen> {
           centerTitle: false,
           backgroundColor: Colors.white,
           elevation: 0,
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(
-                Icons.logout,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                FirebaseAuth.instance.signOut();
-              },
-            )
-          ],
         ),
-        body: Center(
-          child: Text("data"),
+        body: FutureBuilder(
+          future: getDocIDs(),
+          builder: (context, snapshot) {
+            return ListView.builder(
+              itemCount: docIDs.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: GetContent(documentId: docIDs[index]),
+                );
+              },
+            );
+          },
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
